@@ -6,6 +6,7 @@ from models import db, Plant
 with app.app_context():
 
     Plant.query.delete()
+    plants=[]
 
     aloe = Plant(
         id=1,
@@ -20,6 +21,8 @@ with app.app_context():
         image="./images/zz-plant.jpg",
         price=25.98,
     )
-
+    plants.append(aloe)
+    plants.append(zz_plant)
+    
     db.session.add_all([aloe, zz_plant])
     db.session.commit()
